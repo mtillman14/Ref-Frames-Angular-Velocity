@@ -55,7 +55,10 @@ frame2=frame2./sqrt(frame2(:,1).^2+frame2(:,2).^2+frame2(:,3).^2);
 tol=1e-6;
 if ~(dot(frame1(1,:),frame1(2,:))<tol && dot(frame1(1,:),frame1(3,:))<tol && dot(frame1(2,:),frame1(3,:))<tol ... % Frame 1
         && dot(frame2(1,:),frame2(2,:))<tol && dot(frame2(1,:),frame2(3,:))<tol && dot(frame2(2,:),frame2(3,:))<tol) % Frame 2
-    error(strcat(['Reference frames not orthogonal within tol ' num2str(tol)]));
+    warning(strcat(['Reference frames not orthogonal within tol ' num2str(tol)]));
+    wGlobal=[NaN NaN NaN];
+    wGlobalMag=NaN;
+    return;
 end
 
 %% Linear displacement vector from frame 1 to frame 2 of each axes' endpoints.
