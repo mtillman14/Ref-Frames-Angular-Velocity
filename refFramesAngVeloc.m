@@ -12,7 +12,7 @@ function [wGlobal,wGlobalMag]=refFramesAngVeloc(frame1,frame2,frameRate,degOrRad
 %     The origin of both coordinate frames are assumed to be at the same point on the rigid body.
 %     The axes within each of the reference frames should be orthogonal. 
 %     The axes within each of the reference frames do not need to be unit vectors. That is done here.
-% frameRate: 1/(time elapsed between the two frames). Optional: Default value is 1 if not specified.
+% frameRate: in Hz. 1/(time elapsed between the two frames). Optional: Default value is 1 if not specified.
 % degOrRad: Specifies preference for outputs to be in radians (0) or degrees (1). Optional: Default value is 0 if not specified.
 
 % Outputs:
