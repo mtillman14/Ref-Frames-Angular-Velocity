@@ -9,7 +9,7 @@ function [wGlobal,wGlobalMag]=refFramesAngVeloc(frame1,frame2,frameRate,degOrRad
 % Frame 1 and Frame 2: two 3x3 matrices each representing a coordinate frame in global coordinates, where:
 %     The rows represent each individual axis
 %     The columns are the magnitudes of the X, Y, and Z (or I, J, K) components of each axis.
-%     The origin of both coordinate frames is assumed to be at [0 0 0].
+%     The origin of both coordinate frames are assumed to be at the same point on the rigid body.
 %     The axes within each of the reference frames should be orthogonal. 
 %     The axes within each of the reference frames do not need to be unit vectors. That is done here.
 % frameRate: 1/(time elapsed between the two frames). Optional: Default value is 1 if not specified.
