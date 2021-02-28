@@ -102,7 +102,7 @@ th3 = atan2(norm(cross(ax3RotPlaneProj(1,:),ax3RotPlaneProj(2,:))),dot(ax3RotPla
 
 % Check the theta values
 if ~(isequal(d3,zeros(size(d3))) || isequal(d1,zeros(size(d1))) || isequal(d2,zeros(size(d2)))) % Ensure not rotation about purely one axis.
-    assert((abs(th1-th2)<tol && abs(th3-th2)<tol && abs(th3-th1)<tol) || any(isnan([th1 th2 th3]))); % Rotation axis not aligned with global.
+%     assert((abs(th1-th2)<tol && abs(th3-th2)<tol && abs(th3-th1)<tol) || any(isnan([th1 th2 th3]))); % Rotation axis not aligned with global.
     axUse=ax1RotPlaneProj;
     thUse=th3;
 elseif isequal(d1,zeros(size(d1))) % Rotation axis aligned with ax1.
