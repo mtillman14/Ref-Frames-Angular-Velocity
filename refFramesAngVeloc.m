@@ -25,7 +25,7 @@ function [wGlobal,wGlobalMag]=refFramesAngVeloc(frame1,frame2,frameRate,degOrRad
 
 % Example 1 Input:
 % frame1=[1 0 0; 0 1 0; 0 0 1];
-% frame2=[1 0 0; [0 1 1]/norm([0 1 1]); [0 -1 1]/norm([0 -1 1]); % Only axes 2 and 3 rotate.
+% frame2=[1 0 0; [0 1 1]/norm([0 1 1]); [0 -1 1]/norm([0 -1 1])]; % Only axes 2 and 3 rotate.
 % frameRate=1;
 
 % Example 1 Output:
