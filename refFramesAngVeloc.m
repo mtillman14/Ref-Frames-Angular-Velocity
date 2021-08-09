@@ -102,7 +102,7 @@ th3 = atan2(norm(cross(ax3RotPlaneProj(1,:),ax3RotPlaneProj(2,:))),dot(ax3RotPla
 
 % Check the theta values
 if ~(isequal(d3,zeros(size(d3))) || isequal(d1,zeros(size(d1))) || isequal(d2,zeros(size(d2)))) % Ensure not rotation about purely one axis.
-%     assert((abs(th1-th2)<tol && abs(th3-th2)<tol && abs(th3-th1)<tol) || any(isnan([th1 th2 th3]))); % Rotation axis not aligned with global.
+    assert((abs(th1-th2)<tol && abs(th3-th2)<tol && abs(th3-th1)<tol) || any(isnan([th1 th2 th3]))); % Rotation axis not aligned with global.
     axUse=ax1RotPlaneProj;
     thUse=th3;
 elseif isequal(d1,zeros(size(d1))) % Rotation axis aligned with ax1.
@@ -120,7 +120,18 @@ elseif isequal(d3,zeros(size(d3)))% Rotation axis aligned with ax3.
 end
 
 % Determine whether rotation is positive or negative (follows the right hand rule!)
-wDir=cross(axUse(2,:),axUse(1,:))/norm(cross(axUse(2,:),axUse(1,:)));
+if ~isequal(cross(axUse(2,:),axUse(1,:)),zeros(1,3))
+    wDir=cross(axUse(2,:),axUse(1,:))/norm(cross(axUse(2,:),axUse(1,:)));
+else % 180 degree (pi radians) turn! Axis of rotation is in either one of the two directions.
+    wGlobal=[NaN NaN NaN]; % Placeholder!! This is the result of the above computation anyways!
+    wGlobalMag=NaN;
+    return;
+%     if degOrRad==0 % Radians
+% %         wDir=;
+%     else % Degrees
+% %         wDir=;
+%     end
+end
 
 % Compute the magnitude of the rotation, using the given frame rate.
 wGlobalMag=thUse*frameRate;
